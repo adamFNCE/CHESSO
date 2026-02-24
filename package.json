@@ -1,0 +1,25 @@
+{
+  "name": "chesso",
+  "private": true,
+  "version": "0.1.0",
+  "workspaces": [
+    "apps/*"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspace @chesso/server & npm run dev --workspace @chesso/web",
+    "dev:web": "npm run dev --workspace @chesso/web",
+    "dev:web:local": "npm run dev --workspace @chesso/web -- --host 127.0.0.1 --port 5173",
+    "dev:server": "npm run dev --workspace @chesso/server",
+    "start:server": "npm run start --workspace @chesso/server",
+    "build:web": "npm run build --workspace @chesso/web",
+    "build": "npm run build --workspace @chesso/server && npm run build --workspace @chesso/web",
+    "build:contracts": "npm run build --prefix contracts",
+    "test:contracts": "npm run test --prefix contracts",
+    "deploy:contracts": "npm run deploy --prefix contracts",
+    "test:e2e": "playwright test",
+    "test:e2e:headed": "playwright test --headed"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.51.1"
+  }
+}
